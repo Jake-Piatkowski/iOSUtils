@@ -47,4 +47,19 @@
     dispatch_after(popTime, dispatch_get_main_queue(), block);
 }
 
+/**
+ * Checks if a given VC is presented modally.
+ *
+ * Taken from:
+ * http://stackoverflow.com/questions/2798653/is-it-possible-to-determine-whether-viewcontroller-is-presented-as-modal
+ */
++ (bool)isPresentedModallyViewController:(UIViewController *)viewController {
+    
+    return viewController.presentingViewController.presentedViewController == viewController
+        || (viewController.navigationController.presentingViewController.presentedViewController != nil
+            && viewController.navigationController != nil
+            && viewController.navigationController.presentingViewController.presentedViewController == viewController.navigationController)
+        || [viewController.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]];
+}
+
 @end

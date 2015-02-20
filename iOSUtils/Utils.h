@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Utils : NSObject
 
@@ -15,5 +16,6 @@
 + (NSString *)replaceFirstOccurenceOfString:(NSString *)searchedString withReplacementString:(NSString *)replacementString inString:(NSString *)fullString;
 
 + (void)performAfterDelay:(float)delayInSeconds block:(dispatch_block_t) block;
++ (bool)isPresentedModallyViewController:(UIViewController *)viewController;
 
 @end
