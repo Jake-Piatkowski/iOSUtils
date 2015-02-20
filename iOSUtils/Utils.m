@@ -62,4 +62,14 @@
         || [viewController.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]];
 }
 
+/**
+ * Assumes that a page is as wide as the ScrollView.
+ */
++ (int)getCurrentPageForScrollView:(UIScrollView *)scrollView {
+    
+    CGFloat pageWidth = scrollView.frame.size.width;
+    
+    return floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+}
+
 @end

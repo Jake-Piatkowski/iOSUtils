@@ -17,5 +17,6 @@
 
 + (void)performAfterDelay:(float)delayInSeconds block:(dispatch_block_t) block;
 + (bool)isPresentedModallyViewController:(UIViewController *)viewController;
++ (int)getCurrentPageForScrollView:(UIScrollView *)scrollView;
 
 @end
