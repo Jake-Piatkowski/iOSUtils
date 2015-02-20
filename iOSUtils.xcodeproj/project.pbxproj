@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23F044D11A9629A900A8D7E1 /* iOSUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23F044D01A9629A900A8D7E1 /* iOSUtils.h */; };
 		23F044D31A9629A900A8D7E1 /* iOSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F044D21A9629A900A8D7E1 /* iOSUtils.m */; };
 		23F044D91A9629A900A8D7E1 /* libiOSUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F044CD1A9629A900A8D7E1 /* libiOSUtils.a */; };
 		23F044E91A962AA700A8D7E1 /* DeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F044E81A962AA700A8D7E1 /* DeviceUtils.m */; };
@@ -16,6 +15,11 @@
 		23F044F11A962E4800A8D7E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F044F01A962E4800A8D7E1 /* UIKit.framework */; };
 		23F044F51A96309000A8D7E1 /* ConversionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F044F41A96309000A8D7E1 /* ConversionUtils.m */; };
 		23F044F81A96309B00A8D7E1 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F044F71A96309B00A8D7E1 /* FileUtils.m */; };
+		23F48C901A974E4000677E3A /* ConversionUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23F044F31A96309000A8D7E1 /* ConversionUtils.h */; };
+		23F48C911A974E4400677E3A /* DeviceUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23F044E71A962AA700A8D7E1 /* DeviceUtils.h */; };
+		23F48C921A974E4A00677E3A /* FileUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23F044F61A96309B00A8D7E1 /* FileUtils.h */; };
+		23F48C931A974E5500677E3A /* GraphicsUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23F044EA1A962ABE00A8D7E1 /* GraphicsUtils.h */; };
+		23F48C941A974E5500677E3A /* Utils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23F044ED1A962ACF00A8D7E1 /* Utils.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +39,11 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				23F044D11A9629A900A8D7E1 /* iOSUtils.h in CopyFiles */,
+				23F48C931A974E5500677E3A /* GraphicsUtils.h in CopyFiles */,
+				23F48C941A974E5500677E3A /* Utils.h in CopyFiles */,
+				23F48C921A974E4A00677E3A /* FileUtils.h in CopyFiles */,
+				23F48C911A974E4400677E3A /* DeviceUtils.h in CopyFiles */,
+				23F48C901A974E4000677E3A /* ConversionUtils.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
