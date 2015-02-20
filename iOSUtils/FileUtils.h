@@ -14,6 +14,7 @@
 + (bool)getBoolFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key;
 + (float)getFloatFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key;
 + (int)getIntFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key;
++ (NSString *)getStringFromPlistFile:(NSString *)filename forIndex:(int)index;
 
 + (NSURL *)getUrlForFilename:(NSString *)filename;
 

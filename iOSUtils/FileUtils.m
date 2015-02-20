@@ -33,6 +33,14 @@
     return [[FileUtils getStringFromPlistFile:filename forDictionaryKey:key] intValue];
 }
 
++ (NSString *)getStringFromPlistFile:(NSString *)filename forIndex:(int)index {
+    
+    NSString *dictionaryPlistPath = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"];
+    NSArray *array = [[NSArray alloc] initWithContentsOfFile:dictionaryPlistPath];
+    
+    return [array objectAtIndex:index];
+}
+
 /**
  * Returns a url to a file of a given name, located in the main bundle.
  */
