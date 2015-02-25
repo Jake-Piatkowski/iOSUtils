@@ -61,6 +61,7 @@
     if (!deviceNamesByCode) {
         
         deviceNamesByCode = @{@"i386"      :@"Simulator",
+                              @"x86_64"    :@"Simulator",
                               @"iPod1,1"   :@"iPod Touch",      // (Original)
                               @"iPod2,1"   :@"iPod Touch",      // (Second Generation)
                               @"iPod3,1"   :@"iPod Touch",      // (Third Generation)
