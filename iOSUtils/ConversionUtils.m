@@ -18,8 +18,15 @@
 /**
  * Taken from:
  * http://stackoverflow.com/questions/3010216/how-can-i-convert-rgb-hex-string-into-uicolor-in-objective-c
+ *
+ * Modified to return transparent colour if given string is nil or empty.
  */
 + (UIColor *)getColourFromHexString:(NSString *)hexString {
+    
+    if (hexString == nil || [hexString isEqualToString:@""]) {
+        
+        return [UIColor clearColor];
+    }
     
     // Remove the #
     NSString *noHashString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];
