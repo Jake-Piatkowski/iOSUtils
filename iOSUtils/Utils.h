@@ -19,4 +19,7 @@
 + (bool)isPresentedModallyViewController:(UIViewController *)viewController;
 + (int)getCurrentPageForScrollView:(UIScrollView *)scrollView;
 
++ (NSString *)generateRandomStringOfLength:(int)length;
++ (NSString *)generateUuid;
+
 @end

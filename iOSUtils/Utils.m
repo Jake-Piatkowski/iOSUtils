@@ -72,4 +72,43 @@
     return floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 }
 
+/**
+ * Generate a string of random alphanumeric characters and given length. Useful for things which
+ * require unique strings.
+ * 
+ * Note: CASE SENSITIVE.
+ * 
+ * Note: length has a high influence on how likely it'll be to generate the same string twice.
+ * The probability factor formula is: 1 / (number_of_possible_chars ^ stringLength). Using chars
+ * from the English alphabet gives us: 1 / (62 ^ stringLength).
+ */
++ (NSString *)generateRandomStringOfLength:(int)length {
+    
+    // A uuid can have chars from the following range: [A-Za-z0-9]
+    // This means there's 62 possible chars for each char spot in the string
+    char orderIdChars[length + 1];
+    
+    for (int i = 0; i < length; i++) {
+        
+        int randomCharIndex = arc4random_uniform((int) strlen(ALPHANUMERIC_CHARS_ENG));
+        orderIdChars[i] = ALPHANUMERIC_CHARS_ENG[randomCharIndex];
+    }
+    // Add null termination for the array of chars to be treated as C-style string
+    orderIdChars[length] = '\0';
+    NSString *orderId = [[NSString alloc] initWithCString:orderIdChars encoding:NSUTF8StringEncoding];
+    
+    return orderId;
+}
+
+const char ALPHANUMERIC_CHARS_ENG[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+    'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+    'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7',
+    '8', '9' };
+
++ (NSString *)generateUuid {
+    
+    return [Utils generateRandomStringOfLength:32];
+}
+
 @end
