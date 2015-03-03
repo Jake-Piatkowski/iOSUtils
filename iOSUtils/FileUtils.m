@@ -11,11 +11,8 @@
 @implementation FileUtils
 
 + (NSString *)getStringFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key {
-    
-    NSString *dictionaryPlistPath = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"];
-    NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:dictionaryPlistPath];
-    
-    return [dictionary objectForKey:key];
+
+    return (NSString *)[FileUtils getObjectFromPlistFile:filename forDictionaryKey:key];
 }
 
 + (bool)getBoolFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key {
@@ -39,6 +36,19 @@
     NSArray *array = [[NSArray alloc] initWithContentsOfFile:dictionaryPlistPath];
     
     return [array objectAtIndex:index];
+}
+
++ (NSArray *)getArrayFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key {
+    
+    return (NSArray *)[FileUtils getObjectFromPlistFile:filename forDictionaryKey:key];
+}
+
++ (NSArray *)getObjectFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key {
+    
+    NSString *dictionaryPlistPath = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"];
+    NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:dictionaryPlistPath];
+    
+    return [dictionary objectForKey:key];
 }
 
 /**
