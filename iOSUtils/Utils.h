@@ -12,6 +12,7 @@
 @interface Utils : NSObject
 
 + (NSString *)getBundleDisplayName;
++ (NSString *)getBundleIdentifier;
 
 + (NSString *)replaceFirstOccurenceOfString:(NSString *)searchedString withReplacementString:(NSString *)replacementString inString:(NSString *)fullString;
 

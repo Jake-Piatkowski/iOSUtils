@@ -17,6 +17,11 @@
     return [info objectForKey:@"CFBundleDisplayName"];
 }
 
++ (NSString *)getBundleIdentifier {
+    
+    return [[NSBundle mainBundle] bundleIdentifier];
+}
+
 /**
  * Replaces the 1st occurence of a searched string with a replacement string.
  *
