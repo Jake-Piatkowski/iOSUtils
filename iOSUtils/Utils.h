@@ -20,7 +20,7 @@
 + (bool)isPresentedModallyViewController:(UIViewController *)viewController;
 + (int)getCurrentPageForScrollView:(UIScrollView *)scrollView;
 
-+ (long)getCurrentTime;
++ (long long)getCurrentTime;
 
 + (NSString *)generateRandomStringOfLength:(int)length;
 + (NSString *)generateUuid;

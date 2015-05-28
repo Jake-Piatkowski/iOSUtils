@@ -116,11 +116,11 @@ const char ALPHANUMERIC_CHARS_ENG[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 
     return [Utils generateRandomStringOfLength:32];
 }
 
-+ (long)getCurrentTime {
++ (long long)getCurrentTime {
     
     NSDate *dateNow = [[NSDate alloc] init];
     
-    return [dateNow timeIntervalSince1970] * 1000;
+    return (long long)([dateNow timeIntervalSince1970] * 1000.0);
 }
 
 @end
