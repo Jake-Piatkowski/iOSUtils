@@ -14,6 +14,9 @@
 
 @implementation DeviceUtils
 
+/**
+ * Returns the height of the screen in pixels.
+ */
 + (int)getScreenHeight {
     
     int height = [[UIScreen mainScreen] bounds].size.height;
@@ -22,6 +25,9 @@
     return height * density;
 }
 
+/**
+ * Returns the width of the screen in pixels.
+ */
 + (int)getScreenWidth {
     
     int width = [[UIScreen mainScreen] bounds].size.width;
@@ -30,9 +36,35 @@
     return width * density;
 }
 
+/**
+ * Returns the height of the screen in points.
+ */
++ (int)getScreenHeightInPts {
+    
+    return [[UIScreen mainScreen] bounds].size.height;
+}
+
+/**
+ * Returns the width of the screen in points.
+ */
++ (int)getScreenWidthInPts {
+    
+    return [[UIScreen mainScreen] bounds].size.width;
+}
+
 + (float)getScreenDensity {
     
     return [[UIScreen mainScreen] scale];
+}
+
+/**
+ * Taken from: http://stackoverflow.com/questions/12991935/how-to-programmatically-get-ios-status-bar-height
+ */
++ (int)getStatusBarHeightInPts {
+    
+    CGSize statusBarSize = [[UIApplication sharedApplication] statusBarFrame].size;
+    
+    return (int) MIN(statusBarSize.width, statusBarSize.height);
 }
 
 + (bool)isCameraAvailable {
@@ -132,16 +164,6 @@
         
         return 9;
     }
-}
-
-/**
- * Taken from: http://stackoverflow.com/questions/12991935/how-to-programmatically-get-ios-status-bar-height
- */
-+ (int)getStatusBarHeight {
-    
-    CGSize statusBarSize = [[UIApplication sharedApplication] statusBarFrame].size;
-    
-    return (int) MIN(statusBarSize.width, statusBarSize.height);
 }
 
 + (void)showNetworkActivityIndicator {

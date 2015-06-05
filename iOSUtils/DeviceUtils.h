@@ -12,14 +12,15 @@
 
 + (int)getScreenHeight;
 + (int)getScreenWidth;
++ (int)getScreenHeightInPts;
++ (int)getScreenWidthInPts;
 + (float)getScreenDensity;
++ (int)getStatusBarHeightInPts;
 
 + (bool)isCameraAvailable;
 
 + (NSString *)getUserFriendlyDeviceName;
 + (int)getOSVersion;
-
-+ (int)getStatusBarHeight;
 
 + (void)showNetworkActivityIndicator;
 + (void)hideNetworkActivityIndicator;
