@@ -134,6 +134,9 @@
     }
 }
 
+/**
+ * Taken from: http://stackoverflow.com/questions/12991935/how-to-programmatically-get-ios-status-bar-height
+ */
 + (int)getStatusBarHeight {
     
     CGSize statusBarSize = [[UIApplication sharedApplication] statusBarFrame].size;
