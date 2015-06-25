@@ -74,6 +74,39 @@
     return [videoDevices count] > 0;
 }
 
++ (void)performIfCameraAccessibleBlock:(void (^)())blockSuccess inaccessiblebleBlock:(void (^)())blockFailure {
+    
+    // Taken from: http://stackoverflow.com/questions/25803217/presenting-camera-permission-dialog-in-ios-8
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    
+    if (status == AVAuthorizationStatusAuthorized) { // authorized
+        
+        blockSuccess();
+    }
+    else if (status == AVAuthorizationStatusDenied) { // denied
+        
+        blockFailure();
+    }
+    else if (status == AVAuthorizationStatusRestricted) { // restricted
+        
+        blockFailure();
+    }
+    else if (status == AVAuthorizationStatusNotDetermined) { // not determined
+        
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            
+            if (granted) { // Access has been granted ..do something
+                
+                blockSuccess();
+            } 
+            else { // Access denied ..do something
+                
+                blockFailure();
+            }
+        }];
+    }
+}
+
 /**
  * Taken from: http://stackoverflow.com/questions/11197509/ios-how-to-get-device-make-and-model by NicolasMiari.
  * Will have to be updated with new devices every now and then.

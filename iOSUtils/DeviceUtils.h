@@ -18,6 +18,7 @@
 + (int)getStatusBarHeightInPts;
 
 + (bool)isCameraAvailable;
++ (void)performIfCameraAccessibleBlock:(void (^)())blockSuccess inaccessiblebleBlock:(void (^)())blockFailure;
 
 + (NSString *)getUserFriendlyDeviceName;
 + (int)getOSVersion;
