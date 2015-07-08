@@ -25,6 +25,11 @@
     return [[FileUtils getStringFromPlistFile:filename forDictionaryKey:key] floatValue];
 }
 
++ (float)getDoubleFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key {
+    
+    return [[FileUtils getStringFromPlistFile:filename forDictionaryKey:key] doubleValue];
+}
+
 + (int)getIntFromPlistFile:(NSString *)filename forDictionaryKey:(NSString *)key {
     
     return [[FileUtils getStringFromPlistFile:filename forDictionaryKey:key] intValue];
