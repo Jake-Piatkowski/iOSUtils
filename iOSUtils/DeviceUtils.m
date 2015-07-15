@@ -74,22 +74,28 @@
     return [videoDevices count] > 0;
 }
 
+/**
+ * Performs blocks depending if the access to the camera is granted by the user or not.
+ * Blocks are performed on the main thread since certain things might not like being run on a back thread (which seems to have 
+ * been the case without explicitly executing them on the main thread), e.g. GoogleMaps.
+ *
+ * Taken from: http://stackoverflow.com/questions/25803217/presenting-camera-permission-dialog-in-ios-8
+ */
 + (void)performIfCameraAccessibleBlock:(void (^)())blockSuccess inaccessiblebleBlock:(void (^)())blockFailure {
     
-    // Taken from: http://stackoverflow.com/questions/25803217/presenting-camera-permission-dialog-in-ios-8
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     
     if (status == AVAuthorizationStatusAuthorized) { // authorized
         
-        blockSuccess();
+        [[NSOperationQueue mainQueue] addOperationWithBlock:blockSuccess];
     }
     else if (status == AVAuthorizationStatusDenied) { // denied
         
-        blockFailure();
+        [[NSOperationQueue mainQueue] addOperationWithBlock:blockFailure];
     }
     else if (status == AVAuthorizationStatusRestricted) { // restricted
         
-        blockFailure();
+        [[NSOperationQueue mainQueue] addOperationWithBlock:blockFailure];
     }
     else if (status == AVAuthorizationStatusNotDetermined) { // not determined
         
@@ -97,11 +103,11 @@
             
             if (granted) { // Access has been granted ..do something
                 
-                blockSuccess();
+                [[NSOperationQueue mainQueue] addOperationWithBlock:blockSuccess];
             } 
             else { // Access denied ..do something
                 
-                blockFailure();
+                [[NSOperationQueue mainQueue] addOperationWithBlock:blockFailure];
             }
         }];
     }
